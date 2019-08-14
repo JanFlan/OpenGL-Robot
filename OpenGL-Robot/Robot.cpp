@@ -1,12 +1,10 @@
-/*
-@author : Mohamed Hesham Hamda   mohamed.hesham.badawy@gmail.com
-This code is a C++ code to draw a basic 2D robot using openGL and apply some geometric transformations on it using keyboard
-*/
+
+//@author : Mohamed Hesham Hamda   mohamed.hesham.badawy@gmail.com
+//This code is a C++ code to draw a basic 2D robot using openGL and apply some geometric transformations on it using keyboard
+
 #include <iostream>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
-
-using namespace std;
 
 void Init() {
 	glClearColor(0.0, 0.0, 0.0, 0.0); // set display-window color to white
@@ -19,7 +17,8 @@ void Init() {
 
 
 void HeadPart() {
-	/*The head part*/
+
+	//The head part
 	glColor3f(1, 0.0, 0.0); // setting colour of the quad
 
 	glBegin(GL_QUADS);
@@ -37,12 +36,13 @@ void EyesPart() {
 
 	glColor3f(1, 1, 0.0);
 	glBegin(GL_TRIANGLES);
-	/*The two eyes*/
-	/*left eye*/
+	//The two eyes
+	
+	//left eye
 	glVertex2i(70, 145);
 	glVertex2i(55, 145);
 	glVertex2i(60, 127);
-	/*right eye*/
+	//right eye
 	glVertex2i(80, 145);
 	glVertex2i(95, 145);
 	glVertex2i(85, 127);
@@ -53,7 +53,7 @@ void EyesPart() {
 }
 
 void MouthPart() {
-	/*The mouth part*/
+	//The mouth part
 	glBegin(GL_POLYGON);
 
 	glColor3f(0.0, 1.0, 0.0); // setting colour of the polygon
@@ -68,16 +68,16 @@ void MouthPart() {
 }
 
 void Borders() {
-	/*borders between body parts*/
-
+	
+	//borders between body parts
 	glEnable(GL_LINE_STIPPLE); //Enable Line Stipple
 	glLineStipple(1, 0x00FF); //Draw dashed lines
 
 	glLineWidth(20); // to change the size of the line
 	glBegin(GL_LINES);
 	glColor3f(0.0, 0.0, 0.0); // setting colour to be black
-	/*head and neck*/
-
+	
+	//head and neck
 	glVertex2i(50, 110);
 	glVertex2i(120, 110);
 	glEnd();
@@ -86,7 +86,7 @@ void Borders() {
 
 void NeckPart() {
 
-	/*The part of the neck*/
+	//The part of the neck
 	glBegin(GL_QUAD_STRIP);
 
 	glColor3f(1.0, 0.0, 0.0);
@@ -99,7 +99,7 @@ void NeckPart() {
 	glFlush();
 }
 void BodyPart() {
-	/*The body part*/
+	//The body part
 	glBegin(GL_QUAD_STRIP);
 
 	glVertex2f(40, 93);
@@ -113,9 +113,9 @@ void BodyPart() {
 
 void LegPart() {
 
+	//The left leg part
 	glBegin(GL_TRIANGLE_STRIP);
-	/*The left leg part*/
-
+	
 	glVertex2f(50, 50);
 	glVertex2f(60, 50);
 	glVertex2f(50, 5);
@@ -123,9 +123,9 @@ void LegPart() {
 
 	glEnd();
 
+	//The right leg part
 	glBegin(GL_TRIANGLE_STRIP);
-	/*The right leg part*/
-
+	
 	glVertex2f(90, 50);
 	glVertex2f(100, 50);
 	glVertex2f(90, 5);
@@ -164,8 +164,8 @@ void PointsOnFace() {
 
 void NecklacePart() {
 
+	//The triangle under the neck
 	glBegin(GL_LINE_STRIP);
-	/*The triangle under the neck*/
 
 	glColor3f(0.0, 0.0, 0.0);
 	glVertex2i(60, 100);
@@ -173,7 +173,7 @@ void NecklacePart() {
 	glVertex2i(80, 93);
 	glEnd();
 
-	/*drawing the circle to represent a necklace (The equation's from the OpenGL forum)*/
+	//drawing the circle to represent a necklace (The equation's from the OpenGL forum)
 	const int triangles = 20; // number of triangles
 	const float twoPi = 2.0f * 3.14159f;
 	glBegin(GL_TRIANGLE_FAN);
@@ -188,7 +188,7 @@ void NecklacePart() {
 void DisplayMyDrawing() {
 	glClear(GL_COLOR_BUFFER_BIT); // clearing the buffer to draw new things
 
-	/*calling functions*/
+	//calling all functions
 	HeadPart();
 	EyesPart();
 	MouthPart();
@@ -250,6 +250,6 @@ void main(int argc, char** argv) {
 	Init(); // calling function
 	glutDisplayFunc(DisplayMyDrawing); // calling function
 	glutKeyboardFunc(TakeKey); // keyboard listeners
-	cout << "Press 'S' to scale, 'A' and 'D' to move left and right,"; // printing in the console
+	std::cout << "Press 'S' to scale, 'A' and 'D' to move left and right,"; // printing in the console
 	glutMainLoop(); // loop to keep frams come on the screen
 }
