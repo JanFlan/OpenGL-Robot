@@ -2,10 +2,10 @@
 @author : Mohamed Hesham Hamda   mohamed.hesham.badawy@gmail.com
 This code is a C++ code to draw a basic 2D robot using openGL and apply some geometric transformations on it using keyboard
 */
-
+#include <iostream>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
-#include <iostream>
+
 using namespace std;
 
 void Init() {
@@ -205,7 +205,7 @@ void DisplayMyDrawing() {
 
 }
 
-bool scaled = false;
+bool scaled = false; // scalled or not
 void TakeKey(unsigned char key, int x, int y) {
 	// a function to read keys from the keyboard
 
@@ -250,6 +250,6 @@ void main(int argc, char** argv) {
 	Init(); // calling function
 	glutDisplayFunc(DisplayMyDrawing); // calling function
 	glutKeyboardFunc(TakeKey); // keyboard listeners
-	cout << "Press 's' to scale, 'A' and 'D' to move left and right,"; // printing in the console
+	cout << "Press 'S' to scale, 'A' and 'D' to move left and right,"; // printing in the console
 	glutMainLoop(); // loop to keep frams come on the screen
 }
