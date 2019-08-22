@@ -6,3 +6,6 @@
 - S - Scale
 
 - No configuration is needed. Just uncompress the Glew and Glut.zip in the OpenGL-Robot folder before opening the project and everything should work
+
+
+![](PreviewImage.png)
